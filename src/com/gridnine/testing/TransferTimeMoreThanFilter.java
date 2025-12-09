@@ -5,10 +5,10 @@ import java.time.LocalDateTime;
 import java.util.List;
 import java.util.stream.IntStream;
 
-public class TransferTimeLessOrEqualsFilter implements FlightFilter{
+public class TransferTimeMoreThanFilter implements FlightFilter{
     private final Long minutes;
 
-    public TransferTimeLessOrEqualsFilter(Long minutes) {
+    public TransferTimeMoreThanFilter(Long minutes) {
         this.minutes = minutes;
     }
 

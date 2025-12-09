@@ -1,6 +1,6 @@
 package com.gridnine.testing;
 
-public class DepartureAfterArrivalFilter implements FlightFilter{
+public class DepartureBeforeArrivalFilter implements FlightFilter {
     @Override
     public boolean test(Flight flight) {
         return flight.getSegments().stream()

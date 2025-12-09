@@ -11,16 +11,16 @@ public class Main {
         printFlights(FlightFilterService.filterFlights(allFlights, new DepartureBeforeNowFilter()),
                 "перелёты после фильтра 1 (Вылет до текущего момента времени)");
 
-        printFlights(FlightFilterService.filterFlights(allFlights, new DepartureAfterArrivalFilter()),
+        printFlights(FlightFilterService.filterFlights(allFlights, new DepartureBeforeArrivalFilter()),
                 "перелёты после фильтра 2 (Сегменты с датой прилёта раньше даты вылета)");
 
-        printFlights(FlightFilterService.filterFlights(allFlights, new TransferTimeLessOrEqualsFilter(120L)),
+        printFlights(FlightFilterService.filterFlights(allFlights, new TransferTimeMoreThanFilter(120L)),
                 "перелёты после фильтра 3 (Перелеты, где общее время, проведённое на земле, превышает два часа)");
 
         List<FlightFilter> flightFilters = Arrays.asList(
                 new DepartureBeforeNowFilter(),
-                new DepartureAfterArrivalFilter(),
-                new TransferTimeLessOrEqualsFilter(120L));
+                new DepartureBeforeArrivalFilter(),
+                new TransferTimeMoreThanFilter(120L));
 
         printFlights(FlightFilterService.filterFlights(allFlights, flightFilters),
                 "перелёты после всех фильтров");
